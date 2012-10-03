@@ -16,22 +16,23 @@
 #define SCHEDULE_CALLBACK_WITH_HANDLE 	64
 
 /**
- * Static class for handling scheduled tasks.
+ * \brief Static class for handling scheduled tasks.
+ *
  */
 class Schedule {
 public:
 	/**
-	 * Evaluates the schedule plan and goes to sleep mode
+	 * \brief Evaluates the schedule plan and goes to sleep mode
 	 */
 	static void loopAndSleep();
 	
 	/**
-	 * Evaluates the schedule plan
+	 * \brief Evaluates the schedule plan
 	 */
 	 static void loop();
 	 
 	/**
-	 * Register a callback that is executed after the given time in ms
+	 * \brief Register a callback that is executed after the given time in ms
 	 *	 
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction()	 
@@ -40,7 +41,7 @@ public:
 	static byte after(word ms, void (*callback)());
 	
 	/**
-	 * Register a callback that is executed after the given time in ms
+	 * \brief Register a callback that is executed after the given time in ms
 	 *
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
@@ -49,7 +50,7 @@ public:
 	static byte after(word ms, void (*callback)(byte));
 	
 	/**
-	 * Register a callback that is executed periodically
+	 * \brief Register a callback that is executed periodically
 	 *
 	 * \param ms Repeat every ms milliseconds
 	 * \param callback Callback of type void myCallbackFunction()
@@ -59,7 +60,7 @@ public:
 	static byte every(word ms, void (*callback)(), word startDelay = -1);
 	
 	/**
-	 * Register a callback that is executed periodically
+	 * \brief Register a callback that is executed periodically
 	 *
 	 * \param ms Repeat every ms milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
@@ -69,12 +70,12 @@ public:
 	static byte every(word ms, void (*callback)(byte), word startDelay = -1);
 	
 	/**
-	 * Removes the event with the specified handle from schedule
+	 * \brief Removes the event with the specified handle from schedule
 	 */
 	static void remove(byte handle);
 private:
 	/**
-	 * Struct for schedule entries
+	 * \brief Struct for schedule entries
 	 */
 	struct ScheduleEntry {
 		byte scheduleType;
@@ -84,12 +85,12 @@ private:
 	};
 	
 	/**
-	 * Storage for the tasks
+	 * \brief Storage for the tasks
 	 */
 	static ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];
 	
 	/**
-	 * Returns the next free handle; 0 otherwise
+	 * \brief Returns the next free handle; 0 otherwise
 	 */
 	static byte findFreeHandle();
 
