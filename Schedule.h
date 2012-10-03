@@ -15,6 +15,9 @@
 #define SCHEDULE_TYPE_MS_PERIODIC 		2
 #define SCHEDULE_CALLBACK_WITH_HANDLE 	64
 
+/**
+ * Static class for handling scheduled tasks.
+ */
 class Schedule {
 public:
 	/**
