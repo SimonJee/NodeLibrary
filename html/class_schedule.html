@@ -101,12 +101,15 @@ $(document).ready(function(){initNavTree('class_schedule.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_schedule-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Schedule Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -125,7 +128,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a929038911f615d028384c926afa775b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a929038911f615d028384c926afa775b7">remove</a> (byte handle)</td></tr>
 <tr class="separator:a929038911f615d028384c926afa775b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Static class for handling scheduled tasks. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a87ea37632c59c5d066774ed5e316923a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -158,6 +163,13 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Register a callback that is executed after the given time in ms</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Delay in milliseconds </td></tr>
+    <tr><td class="paramname">callback</td><td>Callback of type void myCallbackFunction() </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
 </div>
@@ -194,6 +206,13 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Register a callback that is executed after the given time in ms</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Delay in milliseconds </td></tr>
+    <tr><td class="paramname">callback</td><td>Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
 </div>
@@ -236,6 +255,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Register a callback that is executed periodically</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Repeat every ms milliseconds </td></tr>
+    <tr><td class="paramname">callback</td><td>Callback of type void myCallbackFunction() </td></tr>
+    <tr><td class="paramname">startDelay</td><td>Delay in milliseconds </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
 </div>
@@ -278,6 +305,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Register a callback that is executed periodically</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Repeat every ms milliseconds </td></tr>
+    <tr><td class="paramname">callback</td><td>Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry. </td></tr>
+    <tr><td class="paramname">startDelay</td><td>Delay in milliseconds </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
 </div>
@@ -365,7 +400,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_schedule.html">Schedule</a></li>
-    <li class="footer">Generated on Wed Oct 3 2012 14:13:46 for NodeLibrary by
+    <li class="footer">Generated on Wed Oct 3 2012 14:27:47 for NodeLibrary by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>
