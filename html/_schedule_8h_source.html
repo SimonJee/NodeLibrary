@@ -119,43 +119,43 @@ $(document).ready(function(){initNavTree('_schedule_8h_source.html','');});
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SCHEDULE_TYPE_MS_PERIODIC       2</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SCHEDULE_CALLBACK_WITH_HANDLE   64</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_schedule.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_schedule.html">Schedule</a> {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_schedule.html#a828ed716a25da543bf978b2cbc10c2e6">loopAndSleep</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_schedule.html#ad9f56c6bddd23a5bd5148e449f30cf46">loop</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;     </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#a87ea37632c59c5d066774ed5e316923a">after</a>(word ms, <span class="keywordtype">void</span> (*callback)());</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#a87ea37632c59c5d066774ed5e316923a">after</a>(word ms, <span class="keywordtype">void</span> (*callback)(byte));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#ad54175dfee0da627a8dc9b9e44d6cb7b">every</a>(word ms, <span class="keywordtype">void</span> (*callback)(), word startDelay = -1);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#ad54175dfee0da627a8dc9b9e44d6cb7b">every</a>(word ms, <span class="keywordtype">void</span> (*callback)(byte), word startDelay = -1);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">remove</span>(byte handle);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">struct </span>ScheduleEntry {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        byte scheduleType;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        word period;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        word next;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        void (*scheduleEvent)();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    };</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">static</span> byte findFreeHandle();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="class_schedule.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_schedule.html" title="Static class for handling scheduled tasks.">Schedule</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_schedule.html#a828ed716a25da543bf978b2cbc10c2e6" title="Evaluates the schedule plan and goes to sleep mode.">loopAndSleep</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_schedule.html#ad9f56c6bddd23a5bd5148e449f30cf46" title="Evaluates the schedule plan.">loop</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;     </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#a87ea37632c59c5d066774ed5e316923a" title="Register a callback that is executed after the given time in ms.">after</a>(word ms, <span class="keywordtype">void</span> (*callback)());</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#a87ea37632c59c5d066774ed5e316923a" title="Register a callback that is executed after the given time in ms.">after</a>(word ms, <span class="keywordtype">void</span> (*callback)(byte));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#ad54175dfee0da627a8dc9b9e44d6cb7b" title="Register a callback that is executed periodically.">every</a>(word ms, <span class="keywordtype">void</span> (*callback)(), word startDelay = -1);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">static</span> byte <a class="code" href="class_schedule.html#ad54175dfee0da627a8dc9b9e44d6cb7b" title="Register a callback that is executed periodically.">every</a>(word ms, <span class="keywordtype">void</span> (*callback)(byte), word startDelay = -1);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <span class="keyword">remove</span>(byte handle);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">struct </span>ScheduleEntry {</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        byte scheduleType;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        word period;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        word next;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        void (*scheduleEvent)();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    };</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">static</span> ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">static</span> byte findFreeHandle();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;};</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>Schedule.h</b></li>
-    <li class="footer">Generated on Wed Oct 3 2012 14:27:47 for NodeLibrary by
+    <li class="footer">Generated on Wed Oct 3 2012 14:39:39 for NodeLibrary by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

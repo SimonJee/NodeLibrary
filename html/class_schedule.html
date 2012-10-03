@@ -109,27 +109,42 @@ $(document).ready(function(){initNavTree('class_schedule.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Static class for handling scheduled tasks.  
+ <a href="class_schedule.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a828ed716a25da543bf978b2cbc10c2e6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a828ed716a25da543bf978b2cbc10c2e6">loopAndSleep</a> ()</td></tr>
+<tr class="memitem:a828ed716a25da543bf978b2cbc10c2e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a828ed716a25da543bf978b2cbc10c2e6"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a828ed716a25da543bf978b2cbc10c2e6">loopAndSleep</a> ()</td></tr>
+<tr class="memdesc:a828ed716a25da543bf978b2cbc10c2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the schedule plan and goes to sleep mode. <br/></td></tr>
 <tr class="separator:a828ed716a25da543bf978b2cbc10c2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ad9f56c6bddd23a5bd5148e449f30cf46">loop</a> ()</td></tr>
+<tr class="memitem:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9f56c6bddd23a5bd5148e449f30cf46"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ad9f56c6bddd23a5bd5148e449f30cf46">loop</a> ()</td></tr>
+<tr class="memdesc:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the schedule plan. <br/></td></tr>
 <tr class="separator:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87ea37632c59c5d066774ed5e316923a"><td class="memItemLeft" align="right" valign="top">static byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a87ea37632c59c5d066774ed5e316923a">after</a> (word ms, void(*callback)())</td></tr>
+<tr class="memdesc:a87ea37632c59c5d066774ed5e316923a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback that is executed after the given time in ms.  <a href="#a87ea37632c59c5d066774ed5e316923a"></a><br/></td></tr>
 <tr class="separator:a87ea37632c59c5d066774ed5e316923a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f5927f2408eac995a120eba99be07dd"><td class="memItemLeft" align="right" valign="top">static byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a5f5927f2408eac995a120eba99be07dd">after</a> (word ms, void(*callback)(byte))</td></tr>
+<tr class="memdesc:a5f5927f2408eac995a120eba99be07dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback that is executed after the given time in ms.  <a href="#a5f5927f2408eac995a120eba99be07dd"></a><br/></td></tr>
 <tr class="separator:a5f5927f2408eac995a120eba99be07dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad54175dfee0da627a8dc9b9e44d6cb7b"><td class="memItemLeft" align="right" valign="top">static byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ad54175dfee0da627a8dc9b9e44d6cb7b">every</a> (word ms, void(*callback)(), word startDelay=-1)</td></tr>
+<tr class="memdesc:ad54175dfee0da627a8dc9b9e44d6cb7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback that is executed periodically.  <a href="#ad54175dfee0da627a8dc9b9e44d6cb7b"></a><br/></td></tr>
 <tr class="separator:ad54175dfee0da627a8dc9b9e44d6cb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f1c7c536994ca30e189ae75027c0b62"><td class="memItemLeft" align="right" valign="top">static byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a3f1c7c536994ca30e189ae75027c0b62">every</a> (word ms, void(*callback)(byte), word startDelay=-1)</td></tr>
+<tr class="memdesc:a3f1c7c536994ca30e189ae75027c0b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback that is executed periodically.  <a href="#a3f1c7c536994ca30e189ae75027c0b62"></a><br/></td></tr>
 <tr class="separator:a3f1c7c536994ca30e189ae75027c0b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a929038911f615d028384c926afa775b7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a929038911f615d028384c926afa775b7">remove</a> (byte handle)</td></tr>
+<tr class="memitem:a929038911f615d028384c926afa775b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a929038911f615d028384c926afa775b7"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a929038911f615d028384c926afa775b7">remove</a> (byte handle)</td></tr>
+<tr class="memdesc:a929038911f615d028384c926afa775b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the event with the specified handle from schedule. <br/></td></tr>
 <tr class="separator:a929038911f615d028384c926afa775b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static class for handling scheduled tasks. </p>
+
+<p>Definition at line <a class="el" href="_schedule_8h_source.html#l00022">22</a> of file <a class="el" href="_schedule_8h_source.html">Schedule.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a87ea37632c59c5d066774ed5e316923a"></a>
 <div class="memitem">
@@ -162,7 +177,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Register a callback that is executed after the given time in ms</p>
+
+<p>Register a callback that is executed after the given time in ms. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ms</td><td>Delay in milliseconds </td></tr>
@@ -171,6 +187,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
+
+<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00075">75</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 
 </div>
 </div>
@@ -205,7 +223,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Register a callback that is executed after the given time in ms</p>
+
+<p>Register a callback that is executed after the given time in ms. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ms</td><td>Delay in milliseconds </td></tr>
@@ -214,6 +233,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
+
+<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00088">88</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +275,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Register a callback that is executed periodically</p>
+
+<p>Register a callback that is executed periodically. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ms</td><td>Repeat every ms milliseconds </td></tr>
@@ -264,6 +286,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
+
+<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00098">98</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 
 </div>
 </div>
@@ -304,7 +328,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Register a callback that is executed periodically</p>
+
+<p>Register a callback that is executed periodically. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ms</td><td>Repeat every ms milliseconds </td></tr>
@@ -315,84 +340,13 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
-</div>
-</div>
-<a class="anchor" id="ad9f56c6bddd23a5bd5148e449f30cf46"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Schedule::loop </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Evaluates the schedule plan </p>
-
-</div>
-</div>
-<a class="anchor" id="a828ed716a25da543bf978b2cbc10c2e6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Schedule::loopAndSleep </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Evaluates the schedule plan and goes to sleep mode </p>
-
-</div>
-</div>
-<a class="anchor" id="a929038911f615d028384c926afa775b7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Schedule::remove </td>
-          <td>(</td>
-          <td class="paramtype">byte&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Removes the event with the specified handle from schedule </p>
+<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00117">117</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_schedule_8h_source.html">Schedule.h</a></li>
-<li>Schedule.cpp</li>
+<li><a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -400,7 +354,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_schedule.html">Schedule</a></li>
-    <li class="footer">Generated on Wed Oct 3 2012 14:27:47 for NodeLibrary by
+    <li class="footer">Generated on Wed Oct 3 2012 14:39:39 for NodeLibrary by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>
