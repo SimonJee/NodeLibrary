@@ -15,13 +15,6 @@
 #define SCHEDULE_TYPE_MS_PERIODIC 		2
 #define SCHEDULE_CALLBACK_WITH_HANDLE 	64
 
-struct ScheduleEntry {
-	byte scheduleType;
-	word period;
-	word next;
-	void (*scheduleEvent)();
-};
-
 class Schedule {
 public:
 	/**
@@ -36,7 +29,9 @@ public:
 	 
 	/**
 	 * Register a callback that is executed after the given time in ms
-	 *
+	 *	 
+	 * \param ms Delay in milliseconds
+	 * \param callback Callback of type void myCallbackFunction()	 
 	 * \returns a handle to the task entry on success; 0 otherwise
 	 */
 	static byte after(word ms, void (*callback)());
@@ -44,6 +39,8 @@ public:
 	/**
 	 * Register a callback that is executed after the given time in ms
 	 *
+	 * \param ms Delay in milliseconds
+	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
 	 * \returns a handle to the task entry on success; 0 otherwise
 	 */
 	static byte after(word ms, void (*callback)(byte));
@@ -51,13 +48,19 @@ public:
 	/**
 	 * Register a callback that is executed periodically
 	 *
+	 * \param ms Repeat every ms milliseconds
+	 * \param callback Callback of type void myCallbackFunction()
+	 * \param startDelay Delay in milliseconds
 	 * \returns a handle to the task entry on success; 0 otherwise
 	 */
 	static byte every(word ms, void (*callback)(), word startDelay = -1);
 	
-		/**
+	/**
 	 * Register a callback that is executed periodically
 	 *
+	 * \param ms Repeat every ms milliseconds
+	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
+	 * \param startDelay Delay in milliseconds
 	 * \returns a handle to the task entry on success; 0 otherwise
 	 */
 	static byte every(word ms, void (*callback)(byte), word startDelay = -1);
@@ -68,6 +71,16 @@ public:
 	static void remove(byte handle);
 private:
 	/**
+	 * Struct for schedule entries
+	 */
+	struct ScheduleEntry {
+		byte scheduleType;
+		word period;
+		word next;
+		void (*scheduleEvent)();
+	};
+	
+	/**
 	 * Storage for the tasks
 	 */
 	static ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];
@@ -76,6 +89,7 @@ private:
 	 * Returns the next free handle; 0 otherwise
 	 */
 	static byte findFreeHandle();
+
 };
 
 #endif

@@ -12,7 +12,7 @@
 // Enable watchdog interrupt
 ISR(WDT_vect) { Sleepy::watchdogEvent(); }
 
-ScheduleEntry Schedule::entries[MAX_SCHEDULE_ENTRIES];
+Schedule::ScheduleEntry Schedule::entries[MAX_SCHEDULE_ENTRIES];
 
 void Schedule::loopAndSleep() {
 	word next2 = 0;
