@@ -7,8 +7,41 @@
 #include "Arduino.h"
 #include "Node.h"
 
-prog_char* PROGMEM Node::nodeName = NULL;
+const char*  Node::nodeName = NULL;
+byte Node::controllerNodeId = 0;
+nodeEvent Node::connectionStateChanged = NULL;
 
-void Node::setName(prog_char* PROGMEM name) {
+void Node::setName(const char* name) {
 	Node::nodeName = name;
+}
+
+void Node::loadConfig() {
+}
+
+void Node::beginConnectToController(ConnectionOptions options) {
+	// Send message to controller, wait for ack
+	// rf_12(....)
+}
+
+void Node::setConnectionStateChangedHandler(nodeEvent handler) {
+	connectionStateChanged = handler;
+}
+
+void Node::raiseOnConnectionStateChanged() {
+	if(connectionStateChanged) {
+		// TODO: Fix constant type
+		connectionStateChanged(0);
+	}
+}
+
+IdleMode Node::loop() {
+	//if(rf_12_revc ... {
+	
+	// Received ack from controller
+	if(0) {
+		
+	}
+	//}
+	
+	return IDLE;
 }
