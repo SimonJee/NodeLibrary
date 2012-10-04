@@ -1,7 +1,9 @@
-/*
-  Node.cpp - Library for communicating with wireless nodes.
-  Created by SimonJee, October 1, 2012.
-  Released into the public domain.
+/**
+  \file Node.cpp   
+  \brief Library for communicating with wireless nodes.  
+  \author SimonJee
+  \date Created on October 2, 2012.
+  \copyright Released into the public domain.
 */
 
 #include "Arduino.h"

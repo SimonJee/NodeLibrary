@@ -1,7 +1,9 @@
-/*
-  Schedule.cpp - Library for communicating with wireless nodes.  
-  Created by SimonJee, October 2, 2012.
-  Released into the public domain.
+/**
+  \file Schedule.cpp 
+  \brief Scheduling
+  \author SimonJee
+  \date Created on October 2, 2012.
+  \copyright Released into the public domain.
 */
 
 #include "Arduino.h"
@@ -10,11 +12,24 @@
 #include <Ports.h>
 
 // Enable watchdog interrupt
+/**
+ * \brief Interrupt handler for watchdog events.
+ * 
+ * Calls Sleepy::watchdogEvent() from the JeeLib library. This interrrupt handler is neccessary to recover from deep sleep.
+ */
 ISR(WDT_vect) { Sleepy::watchdogEvent(); }
 
 Schedule::ScheduleEntry Schedule::entries[MAX_SCHEDULE_ENTRIES];
 
 void Schedule::loopAndSleep() {
+	word remain = loop();
+
+	if (remain <= 60000) {
+		Sleepy::loseSomeTime(16); // TODO: Does not support interrupts
+	}
+}
+
+word Schedule::loop() {
 	word next2 = 0;
 	word remain = 0;
 	
@@ -47,10 +62,6 @@ void Schedule::loopAndSleep() {
 	}
 	
 	remain = next2 - millis();
-
-	if (remain <= 60000) {
-		Sleepy::loseSomeTime(16); // TODO: Does not support interrupts
-	}
 }
 
 void Schedule::remove(byte handle) {

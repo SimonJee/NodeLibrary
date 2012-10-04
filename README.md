@@ -1,3 +1,5 @@
+\mainpage
+
 NodeLibrary
 ===========
 
@@ -17,3 +19,4 @@ Currently maintained at github.com
 
 * Documentation: http://simonjee.github.com/NodeLibrary/
 * Source: http://github.com/SimonJee/NodeLibrary
+

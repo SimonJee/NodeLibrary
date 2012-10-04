@@ -1,36 +1,50 @@
-/*
-  Schedule.h - Library for communicating with wireless nodes.  
-  Created by SimonJee, October 2, 2012.
-  Released into the public domain.
+/**
+  \file Schedule.h 
+  \brief Scheduling
+  \author SimonJee
+  \date Created on October 2, 2012.
+  \copyright Released into the public domain.
 */
 
 #ifndef Schedule_h
 #define Schedule_h
 
 #ifndef MAX_SCHEDULE_ENTRIES 
+/**
+ * \brief Defines the maximal count of concurrent scheduling entries. 
+ *
+ * You can override this by using \code #define MAX_SCHEDULE_ENTRIES 20\endcode before including the Schedule.h file for the first time.
+ */
 #define MAX_SCHEDULE_ENTRIES 10
 #endif
 
+/** \brief Internally used only. \internal Execute once, parameters in milliseconds */
 #define SCHEDULE_TYPE_MS_ONCE			1
+
+/** \brief Internally used only. \internal Execute periodic, parameters in milliseconds */
 #define SCHEDULE_TYPE_MS_PERIODIC 		2
+
+/** \brief Internally used only. \internal Marker bit event handler requires handler parameter */
 #define SCHEDULE_CALLBACK_WITH_HANDLE 	64
 
 /**
  * \brief Static class for handling scheduled tasks.
  *
+ * The Schedule class can be used to schedule events based on time. 
  */
 class Schedule {
 public:
+	/**
+	 * \brief Evaluates the schedule plan
+	 * \return The number of milliseconds until the next event.
+	 */
+	 static word loop();
+	 
 	/**
 	 * \brief Evaluates the schedule plan and goes to sleep mode
 	 */
 	static void loopAndSleep();
 	
-	/**
-	 * \brief Evaluates the schedule plan
-	 */
-	 static void loop();
-	 
 	/**
 	 * \brief Register a callback that is executed after the given time in ms
 	 *	 

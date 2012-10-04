@@ -1,7 +1,9 @@
-/*
-  Node.h - Library for communicating with wireless nodes.  
-  Created by SimonJee, October 1, 2012.
-  Released into the public domain.
+/**
+  \file Node.h  
+  \brief Library for communicating with wireless nodes.  
+  \author SimonJee
+  \date Created on October 2, 2012.
+  \copyright Released into the public domain.
 */
 
 #ifndef Node_h
@@ -23,6 +25,9 @@ enum IdleMode {
 	IDLE 		= 64  /** I've something to do in the next loop, just idle */
 };
 
+/**
+ * \brief Callback type for wireless events
+ */
 typedef void (*nodeEvent)(byte eventType);
 
 /**
@@ -92,5 +97,5 @@ private:
 	static void raiseOnConnectionStateChanged();
 	
 };
-
-#endif // Node_h
+ 
+ #endif // Node_h
