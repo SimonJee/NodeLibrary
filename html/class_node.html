@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('class_node.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,15 +129,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:aa7766da6b21625e51af126230349b37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad46a76095df0b521955764b44253e31a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#ad46a76095df0b521955764b44253e31a">cancelConnectionToController</a> (<a class="el" href="class_node.html#aa04fae991fb2d8ef279067424701ad7e">ConnectionOptions</a> options)</td></tr>
 <tr class="separator:ad46a76095df0b521955764b44253e31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd4e24f2437d573bc86ed4d2594fd8b6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#afd4e24f2437d573bc86ed4d2594fd8b6">setConnectionStateChangedHandler</a> (nodeEvent handler)</td></tr>
+<tr class="memitem:afd4e24f2437d573bc86ed4d2594fd8b6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#afd4e24f2437d573bc86ed4d2594fd8b6">setConnectionStateChangedHandler</a> (<a class="el" href="_node_8h.html#a7086b2ba77838d60922d86e8961957ee">nodeEvent</a> handler)</td></tr>
 <tr class="separator:afd4e24f2437d573bc86ed4d2594fd8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d35b0c2e55f64d01ff1a6b35de5ab9a"><td class="memItemLeft" align="right" valign="top">static IdleMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a3d35b0c2e55f64d01ff1a6b35de5ab9a">loop</a> ()</td></tr>
+<tr class="memitem:a3d35b0c2e55f64d01ff1a6b35de5ab9a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_node_8h.html#a84b8cbc4eb4d80dcc15dea2655a5bde5">IdleMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_node.html#a3d35b0c2e55f64d01ff1a6b35de5ab9a">loop</a> ()</td></tr>
 <tr class="separator:a3d35b0c2e55f64d01ff1a6b35de5ab9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The node class offers high level functionality for wireless nodes </p>
-
-<p>Definition at line <a class="el" href="_node_8h_source.html#l00031">31</a> of file <a class="el" href="_node_8h_source.html">Node.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="aa04fae991fb2d8ef279067424701ad7e"></a>
 <div class="memitem">
@@ -149,8 +147,6 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The connection options </p>
-
-<p>Definition at line <a class="el" href="_node_8h_source.html#l00036">36</a> of file <a class="el" href="_node_8h_source.html">Node.h</a>.</p>
 
 </div>
 </div>
@@ -177,8 +173,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Try to connect controller asynchronously </p>
-
-<p>Definition at line <a class="el" href="_node_8cpp_source.html#l00021">21</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
 
 </div>
 </div>
@@ -229,8 +223,6 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Load the configuration from the eeprom. </p>
 
-<p>Definition at line <a class="el" href="_node_8cpp_source.html#l00018">18</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3d35b0c2e55f64d01ff1a6b35de5ab9a"></a>
@@ -241,7 +233,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">IdleMode Node::loop </td>
+          <td class="memname"><a class="el" href="_node_8h.html#a84b8cbc4eb4d80dcc15dea2655a5bde5">IdleMode</a> Node::loop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -255,8 +247,6 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>The loop function should be called from the main loop. </p>
 
-<p>Definition at line <a class="el" href="_node_8cpp_source.html#l00037">37</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="afd4e24f2437d573bc86ed4d2594fd8b6"></a>
@@ -269,7 +259,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Node::setConnectionStateChangedHandler </td>
           <td>(</td>
-          <td class="paramtype">nodeEvent&#160;</td>
+          <td class="paramtype"><a class="el" href="_node_8h.html#a7086b2ba77838d60922d86e8961957ee">nodeEvent</a>&#160;</td>
           <td class="paramname"><em>handler</em></td><td>)</td>
           <td></td>
         </tr>
@@ -281,8 +271,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Sets the connection state changed handler </p>
-
-<p>Definition at line <a class="el" href="_node_8cpp_source.html#l00026">26</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,13 +297,11 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Sets the name of the node. Should be readable by humans. </p>
 
-<p>Definition at line <a class="el" href="_node_8cpp_source.html#l00014">14</a> of file <a class="el" href="_node_8cpp_source.html">Node.cpp</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_node_8h_source.html">Node.h</a></li>
-<li><a class="el" href="_node_8cpp_source.html">Node.cpp</a></li>
+<li><a class="el" href="_node_8cpp.html">Node.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -323,7 +309,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_node.html">Node</a></li>
-    <li class="footer">Generated on Wed Oct 3 2012 14:39:39 for NodeLibrary by
+    <li class="footer">Generated on Thu Oct 4 2012 09:29:11 for NodeLibrary by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

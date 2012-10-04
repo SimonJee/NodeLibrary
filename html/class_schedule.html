@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('class_schedule.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -120,10 +120,9 @@ Static Public Member Functions</h2></td></tr>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a828ed716a25da543bf978b2cbc10c2e6">loopAndSleep</a> ()</td></tr>
 <tr class="memdesc:a828ed716a25da543bf978b2cbc10c2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the schedule plan and goes to sleep mode. <br/></td></tr>
 <tr class="separator:a828ed716a25da543bf978b2cbc10c2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9f56c6bddd23a5bd5148e449f30cf46"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ad9f56c6bddd23a5bd5148e449f30cf46">loop</a> ()</td></tr>
-<tr class="memdesc:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the schedule plan. <br/></td></tr>
-<tr class="separator:ad9f56c6bddd23a5bd5148e449f30cf46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ddc3fb8bbe24fbb82fc04440e327eca"><td class="memItemLeft" align="right" valign="top">static word&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a5ddc3fb8bbe24fbb82fc04440e327eca">loop</a> ()</td></tr>
+<tr class="memdesc:a5ddc3fb8bbe24fbb82fc04440e327eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the schedule plan.  <a href="#a5ddc3fb8bbe24fbb82fc04440e327eca"></a><br/></td></tr>
+<tr class="separator:a5ddc3fb8bbe24fbb82fc04440e327eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87ea37632c59c5d066774ed5e316923a"><td class="memItemLeft" align="right" valign="top">static byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a87ea37632c59c5d066774ed5e316923a">after</a> (word ms, void(*callback)())</td></tr>
 <tr class="memdesc:a87ea37632c59c5d066774ed5e316923a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback that is executed after the given time in ms.  <a href="#a87ea37632c59c5d066774ed5e316923a"></a><br/></td></tr>
 <tr class="separator:a87ea37632c59c5d066774ed5e316923a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,8 +142,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static class for handling scheduled tasks. </p>
-
-<p>Definition at line <a class="el" href="_schedule_8h_source.html#l00022">22</a> of file <a class="el" href="_schedule_8h_source.html">Schedule.h</a>.</p>
+<p>The <a class="el" href="class_schedule.html" title="Static class for handling scheduled tasks.">Schedule</a> class can be used to schedule events based on time. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a87ea37632c59c5d066774ed5e316923a"></a>
 <div class="memitem">
@@ -187,8 +185,6 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
-
-<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00075">75</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 
 </div>
 </div>
@@ -233,8 +229,6 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
-
-<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00088">88</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
 
 </div>
 </div>
@@ -287,8 +281,6 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00098">98</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a3f1c7c536994ca30e189ae75027c0b62"></a>
@@ -340,13 +332,37 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a handle to the task entry on success; 0 otherwise </dd></dl>
 
-<p>Definition at line <a class="el" href="_schedule_8cpp_source.html#l00117">117</a> of file <a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a5ddc3fb8bbe24fbb82fc04440e327eca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">word Schedule::loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Evaluates the schedule plan. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of milliseconds until the next event. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_schedule_8h_source.html">Schedule.h</a></li>
-<li><a class="el" href="_schedule_8cpp_source.html">Schedule.cpp</a></li>
+<li><a class="el" href="_schedule_8cpp.html">Schedule.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -354,7 +370,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_schedule.html">Schedule</a></li>
-    <li class="footer">Generated on Wed Oct 3 2012 14:39:39 for NodeLibrary by
+    <li class="footer">Generated on Thu Oct 4 2012 09:29:11 for NodeLibrary by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.2 </li>
   </ul>

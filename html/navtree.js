@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "NodeLibrary", "index.html", [
-    [ "NodeLibrary", "md__r_e_a_d_m_e.html", null ],
+    [ "README", "md__r_e_a_d_m_e.html", null ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -12,14 +12,22 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", null, [
-      [ "File List", "files.html", "files" ]
+      [ "File List", "files.html", "files" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_node_8cpp_source.html"
+"_node_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
