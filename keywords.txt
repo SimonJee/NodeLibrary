@@ -1,8 +1,13 @@
 Node				KEYWORD1
+
 Schedule			KEYWORD1
 
-loopAndSleep		KEYWORD2
+loopAndSleep			KEYWORD2
+
 loop				KEYWORD2
+
 after				KEYWORD2
+
 every				KEYWORD2
+
 remove				KEYWORD2

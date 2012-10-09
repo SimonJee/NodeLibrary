@@ -18,14 +18,15 @@
 #define MAX_SCHEDULE_ENTRIES 10
 #endif
 
-/** \brief Internally used only. \internal Execute once, parameters in milliseconds */
-#define SCHEDULE_TYPE_MS_ONCE			1
+/** \brief Run with normal priority. */
+#define SCHEDULE_PRIORITY_NORMAL		0
 
-/** \brief Internally used only. \internal Execute periodic, parameters in milliseconds */
-#define SCHEDULE_TYPE_MS_PERIODIC 		2
+/** \brief Run only if nothing else todo. */
+#define SCHEDULE_PRIORITY_BACKGROUND	8
 
-/** \brief Internally used only. \internal Marker bit event handler requires handler parameter */
-#define SCHEDULE_CALLBACK_WITH_HANDLE 	64
+/** \brief Run with priority. Use with caution. */
+#define SCHEDULE_PRIORITY_HIGH			16
+
 
 /**
  * \brief Static class for handling scheduled tasks.
@@ -45,44 +46,87 @@ public:
 	 */
 	static void loopAndSleep();
 	
+		
+	/**
+	 * \brief Register a callback that is executed as soon as possible
+	 *	 
+	 * \param callback Callback of type void myCallbackFunction()	 
+	 * \param priority Set the schedule priority.
+	 *
+	 * \return a handle to the task entry on success; 0 otherwise
+	 */
+	static byte run(void (*callback)(), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	
+	/**
+	 * \brief Register a callback that is executed as soon as possible
+	 *
+	 * \param ms Delay in milliseconds
+	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
+	 * \param priority Set the schedule priority.
+	 *
+	 * \return a handle to the task entry on success; 0 otherwise
+	 */
+	static byte run(void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	
+
 	/**
 	 * \brief Register a callback that is executed after the given time in ms
 	 *	 
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction()	 
-	 * \returns a handle to the task entry on success; 0 otherwise
+	 * \param priority Set the schedule priority.
+	 *
+	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte after(word ms, void (*callback)());
+	static byte after(word ms, void (*callback)(), byte priority = SCHEDULE_PRIORITY_NORMAL);
 	
 	/**
 	 * \brief Register a callback that is executed after the given time in ms
 	 *
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
-	 * \returns a handle to the task entry on success; 0 otherwise
+	 * \param priority Set the schedule priority.
+	 *
+	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte after(word ms, void (*callback)(byte));
+	static byte after(word ms, void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL);
 	
 	/**
 	 * \brief Register a callback that is executed periodically
 	 *
 	 * \param ms Repeat every ms milliseconds
 	 * \param callback Callback of type void myCallbackFunction()
+	 * \param priority Set the schedule priority.	 
 	 * \param startDelay Delay in milliseconds
-	 * \returns a handle to the task entry on success; 0 otherwise
+	 *
+	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte every(word ms, void (*callback)(), word startDelay = -1);
+	static byte every(word ms, void (*callback)(), byte priority = SCHEDULE_PRIORITY_NORMAL, word startDelay = -1);
 	
 	/**
 	 * \brief Register a callback that is executed periodically
 	 *
 	 * \param ms Repeat every ms milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
+	 * \param priority Set the schedule priority.	
 	 * \param startDelay Delay in milliseconds
-	 * \returns a handle to the task entry on success; 0 otherwise
+	 *
+	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte every(word ms, void (*callback)(byte), word startDelay = -1);
+	static byte every(word ms, void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL, word startDelay = -1);
 	
+	/**
+	 * \brief Registers or updates a timeout with the given handle.
+	 *
+	 * The timeout is called after the given time has passed without updating the timeout.	 
+	 * If you call update on a handle that is currently not registered 0 is returned. You should reset your handle in the timeout function to 0.
+	 *
+	 * \param handle Handle of the timeout
+	 * \return a handle to the task entry on success; 0 otherwise.
+	 */
+	//TODO
+	//static byte timeout(byte handle, word ms, void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL);
+
 	/**
 	 * \brief Removes the event with the specified handle from schedule
 	 */
@@ -91,23 +135,31 @@ private:
 	/**
 	 * \brief Struct for schedule entries
 	 */
-	struct ScheduleEntry {
-		byte scheduleType;
+	struct __attribute__((packed)) ScheduleEntry {		
 		word period;
 		word next;
+		byte scheduleType;
 		void (*scheduleEvent)();
 	};
 	
 	/**
 	 * \brief Storage for the tasks
 	 */
-	static ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];
+	static volatile ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];
 	
 	/**
 	 * \brief Returns the next free handle; 0 otherwise
 	 */
 	static byte findFreeHandle();
 
+	/**
+	 * \brief Executes the entry by the given index. Do not call directly.
+	 *
+	 * \param index The index of the entry to execute
+	 *
+	 * \return count of milliseconds to next run if the entry úpdated its schedule to run again; ~0 otherwise.
+	 */
+	static word executeEntry(byte index);
 };
 
 #endif
