@@ -15,17 +15,19 @@
  *
  * You can override this by using \code #define MAX_SCHEDULE_ENTRIES 20\endcode before including the Schedule.h file for the first time.
  */
-#define MAX_SCHEDULE_ENTRIES 10
+#define MAX_SCHEDULE_ENTRIES 16
 #endif
 
 /** \brief Run with normal priority. */
 #define SCHEDULE_PRIORITY_NORMAL		0
 
 /** \brief Run only if nothing else todo. */
-#define SCHEDULE_PRIORITY_BACKGROUND	8
+#define SCHEDULE_PRIORITY_BACKGROUND	16
 
 /** \brief Run with priority. Use with caution. */
-#define SCHEDULE_PRIORITY_HIGH			16
+#define SCHEDULE_PRIORITY_HIGH			32
+
+#define SCHEDULE_PRIORITY_INTERRUPT		48
 
 
 /**
@@ -33,40 +35,42 @@
  *
  * The Schedule class can be used to schedule events based on time. 
  */
-class Schedule {
+class ScheduleI {
 public:
+	ScheduleI();
+
 	/**
 	 * \brief Evaluates the schedule plan
 	 * \return The number of milliseconds until the next event.
 	 */
-	 static word loop();
+	  uint16_t loop();
 	 
 	/**
 	 * \brief Evaluates the schedule plan and goes to sleep mode
 	 */
-	static void loopAndSleep();
+	 void loopAndSleep();
 	
 		
 	/**
 	 * \brief Register a callback that is executed as soon as possible
 	 *	 
 	 * \param callback Callback of type void myCallbackFunction()	 
-	 * \param priority Set the schedule priority.
+	 * \param options Set the schedule options.
 	 *
 	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte run(void (*callback)(), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	 byte run(void (*callback)(), byte options = SCHEDULE_PRIORITY_NORMAL);
 	
 	/**
 	 * \brief Register a callback that is executed as soon as possible
 	 *
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
-	 * \param priority Set the schedule priority.
+	 * \param options Set the schedule options.
 	 *
 	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte run(void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	 byte run(void (*callback)(byte), byte options = SCHEDULE_PRIORITY_NORMAL);
 	
 
 	/**
@@ -74,70 +78,77 @@ public:
 	 *	 
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction()	 
-	 * \param priority Set the schedule priority.
+	 * \param options Set the schedule options.
 	 *
 	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte after(word ms, void (*callback)(), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	 byte after(uint16_t ms, void (*callback)(), byte options = SCHEDULE_PRIORITY_NORMAL);
 	
 	/**
 	 * \brief Register a callback that is executed after the given time in ms
 	 *
 	 * \param ms Delay in milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
-	 * \param priority Set the schedule priority.
+	 * \param options Set the schedule options.
 	 *
 	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte after(word ms, void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	 byte after(uint16_t ms, void (*callback)(byte), byte options = SCHEDULE_PRIORITY_NORMAL);
 	
 	/**
 	 * \brief Register a callback that is executed periodically
 	 *
 	 * \param ms Repeat every ms milliseconds
 	 * \param callback Callback of type void myCallbackFunction()
-	 * \param priority Set the schedule priority.	 
+	 * \param options Set the schedule options.	 
 	 * \param startDelay Delay in milliseconds
 	 *
 	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte every(word ms, void (*callback)(), byte priority = SCHEDULE_PRIORITY_NORMAL, word startDelay = -1);
+	 byte every(uint16_t ms, void (*callback)(), byte options = SCHEDULE_PRIORITY_NORMAL, uint16_t startDelay = ~0);
 	
 	/**
 	 * \brief Register a callback that is executed periodically
 	 *
 	 * \param ms Repeat every ms milliseconds
 	 * \param callback Callback of type void myCallbackFunction(byte handle). The paramater handle specifies the handle of the schedule entry.	 
-	 * \param priority Set the schedule priority.	
+	 * \param options Set the schedule options.	
 	 * \param startDelay Delay in milliseconds
 	 *
 	 * \return a handle to the task entry on success; 0 otherwise
 	 */
-	static byte every(word ms, void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL, word startDelay = -1);
+	 byte every(uint16_t ms, void (*callback)(byte), byte options = SCHEDULE_PRIORITY_NORMAL, uint16_t startDelay = ~0);
+	
 	
 	/**
-	 * \brief Registers or updates a timeout with the given handle.
-	 *
-	 * The timeout is called after the given time has passed without updating the timeout.	 
-	 * If you call update on a handle that is currently not registered 0 is returned. You should reset your handle in the timeout function to 0.
-	 *
-	 * \param handle Handle of the timeout
-	 * \return a handle to the task entry on success; 0 otherwise.
+	 * \brief Updates an schedule entry
 	 */
-	//TODO
-	//static byte timeout(byte handle, word ms, void (*callback)(byte), byte priority = SCHEDULE_PRIORITY_NORMAL);
+	 byte update(byte handle, uint16_t ms, uint16_t startDelay = ~0);
 
 	/**
 	 * \brief Removes the event with the specified handle from schedule
 	 */
-	static void remove(byte handle);
+	 void remove(byte handle);
+
+	/**
+	 * \brief signals that an interrupt occured and all interrupt handler should be rescheduled to run immediately
+	 */
+	 void interrupt();
+
+	/**
+	 * \brief Powers down the cpu to save energy. The shedule is halted at the current point and millis(9 are not updated any longer
+	 */
+	 void powerDown();
+
+	// TODO: allow to set the correct sleep mode for idle (power down might be a bad choice if a pwm is used)
+	 void setSleepMode(byte mode);
 private:
 	/**
 	 * \brief Struct for schedule entries
 	 */
 	struct __attribute__((packed)) ScheduleEntry {		
-		word period;
-		word next;
+		uint16_t period;
+		uint16_t next;
 		byte scheduleType;
 		void (*scheduleEvent)();
 	};
@@ -145,12 +156,12 @@ private:
 	/**
 	 * \brief Storage for the tasks
 	 */
-	static volatile ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];
+	 static ScheduleEntry entries[MAX_SCHEDULE_ENTRIES];
 	
 	/**
 	 * \brief Returns the next free handle; 0 otherwise
 	 */
-	static byte findFreeHandle();
+	 byte findFreeHandle();
 
 	/**
 	 * \brief Executes the entry by the given index. Do not call directly.
@@ -159,7 +170,18 @@ private:
 	 *
 	 * \return count of milliseconds to next run if the entry úpdated its schedule to run again; ~0 otherwise.
 	 */
-	static word executeEntry(byte index);
+	 uint16_t executeEntry(byte index);
+
+	/**
+	 * \brief Whether an interrupt occured
+	 */
+	 volatile byte handleInterrupt;
+
+	
+	 byte sleepMode;
 };
+
+
+extern ScheduleI Schedule;
 
 #endif
